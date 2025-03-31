@@ -29,15 +29,16 @@ const data = {
     email: "pepo@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
+
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/modules/base/dashboards",
       icon: IconDashboard,
     },
     {
       title: "Entidades",
-      url: "#",
+      url: "/modules/base/entity/academic_center",
       icon: Building,
     },
     {
