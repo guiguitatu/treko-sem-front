@@ -12,8 +12,8 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col md:flex-row">
       <div className="flex-1 flex items-center justify-center bg-[#E3EAD5]">
 
-        <div className='w-1/2 flex flex-col items-center'>
-          <div className='mb-8 flex justify-center'>
+        <div className='w-full lg:w-1/2 flex flex-col items-center'>
+          <div className='mb-8  justify-center hidden xl:block'>
             <Image
               src="/Vector.png"
               alt="Imagem de login"
