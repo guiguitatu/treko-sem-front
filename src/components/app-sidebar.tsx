@@ -67,9 +67,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
+              className="data-[slot=sidebar-menu-button]:!p-1.5 hover:bg-transparent focus:bg-transparent"
             >
-              <a href="#">
+              <a href="/modules/base/dashboards">
                 <Image
                   src={TrekoLogo}
                   width={120}
