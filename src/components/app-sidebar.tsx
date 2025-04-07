@@ -1,10 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  IconDashboard,
-  IconSettings,
-} from "@tabler/icons-react";
+import { IconDashboard, IconSettings } from "@tabler/icons-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
@@ -21,7 +18,7 @@ import {
 import { Building, DollarSign, User } from "lucide-react";
 import Image from "next/image";
 
-import TrekoLogo from '@/app/assets/treko_logo.svg'
+import TrekoLogo from "@/app/assets/treko_logo.svg";
 
 const data = {
   user: {
@@ -73,7 +70,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <a href="#">
-                <Image src={TrekoLogo} width={120} height={50} alt={"Treko"}></Image>
+                <Image
+                  src={TrekoLogo}
+                  width={120}
+                  height={50}
+                  alt={"Treko"}
+                ></Image>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
