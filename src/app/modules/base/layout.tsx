@@ -17,7 +17,6 @@ export default function BaseLayout({
   return (
     <html>
       <link rel="icon" href="/favicon.svg" />
-
       <body>
         <SidebarProvider>
           <AppSidebar variant="inset" />

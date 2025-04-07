@@ -39,7 +39,7 @@ export default function LoginPage() {
                 type="password"
                 id="password"
                 placeholder="Digite sua senha"
-                className="mt-1 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="mt-1 w-full p-3 border bg-gray-100 border-gray-300 rounded-md focus:outline-none focus:ring-2"
               />
             </div>
 
