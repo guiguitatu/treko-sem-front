@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 
 export function AnimatedBg() {
+	// bg animado pra tela de inicio do app
 	const canvasRef = useRef<HTMLCanvasElement>(null)
 
 	useEffect(() => {
