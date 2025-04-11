@@ -1,6 +1,6 @@
-import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react"
+import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
 
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
@@ -8,95 +8,96 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
+import { TrendingUp } from "lucide-react";
 
 export function SectionCards() {
   return (
     <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Total Revenue</CardDescription>
+          <CardDescription>
+            Percentual de doações no último mês
+          </CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+            <div className="flex items-center m-10">
+              +90%{" "}
+              <CardDescription className="text-sm font-bold text-black">
+                
+                Em relação ao último mês
+              </CardDescription>
+            </div>
+            
           </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              <IconTrendingUp />
-              +12.5%
-            </Badge>
-          </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Trending up this month <IconTrendingUp className="size-4" />
-          </div>
-          <div className="text-muted-foreground">
-            Visitors for the last 6 months
+          <div className="flex items-center text-muted-foreground space-between">
+            Alto crescimento <IconTrendingUp></IconTrendingUp>
           </div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>New Customers</CardDescription>
+          <CardDescription>Novos doadores</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             1,234
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
               <IconTrendingDown />
-              -20%
+              -50
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Down 20% this period <IconTrendingDown className="size-4" />
+            Abaixo do que o mês anterior <IconTrendingDown className="size-4" />
           </div>
           <div className="text-muted-foreground">
-            Acquisition needs attention
+            Necessário atrair mais doadores para as entidades
           </div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Active Accounts</CardDescription>
+          <CardDescription>Novas entidades</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            45,678
+            15
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
               <IconTrendingUp />
-              +12.5%
+              +3
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Strong user retention <IconTrendingUp className="size-4" />
+            Mais do que no mês anterior <IconTrendingUp className="size-4" />
           </div>
-          <div className="text-muted-foreground">Engagement exceed targets</div>
+          <div className="text-muted-foreground">Manter o crescimento</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Growth Rate</CardDescription>
+          <CardDescription>Valor médio de doações por doador</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            4.5%
+            R$250,00
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
               <IconTrendingUp />
-              +4.5%
+              -R$ 7,00
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Steady performance increase <IconTrendingUp className="size-4" />
+            Média abaixo do mês passado
           </div>
-          <div className="text-muted-foreground">Meets growth projections</div>
+          <div className="text-muted-foreground">Necessário atrair mais doadores para as entidades</div>
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }
