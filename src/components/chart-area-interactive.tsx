@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import * as React from "react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
-import { useIsMobile } from "@/hooks/use-mobile"
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Card,
   CardAction,
@@ -11,80 +11,170 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
+} from "@/components/ui/chart";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/components/ui/toggle-group"
+} from "@/components/ui/select";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-export const description = "An interactive area chart"
+export const description = "An interactive area chart";
 
 const chartData = [
-  { date: "2024-06-26", desktop: 434, mobile: 380 },
-  { date: "2024-06-27", desktop: 448, mobile: 490 },
-  { date: "2024-06-28", desktop: 149, mobile: 200 },
-  { date: "2024-06-29", desktop: 103, mobile: 160 },
-  { date: "2024-06-30", desktop: 446, mobile: 400 },
-]
+  { date: "2024-12-01", totalDonations: 400000, type: 'academic_center' },
+  { date: "2024-12-02", totalDonations: 300000, type: 'academic_center' },
+  { date: "2024-12-03", totalDonations: 500000, type: 'athletic' },
+  { date: "2024-12-04", totalDonations: 200000, type: 'athletic' },
+  { date: "2024-12-05", totalDonations: 600000, type: 'central_directory' },
+  { date: "2024-12-06", totalDonations: 700000, type: 'central_directory' },
+  { date: "2024-11-01", totalDonations: 800000, type: 'academic_center' },
+  { date: "2024-11-02", totalDonations: 100000, type: 'academic_center' },
+  { date: "2024-11-03", totalDonations: 300000, type: 'athletic' },
+  { date: "2024-11-04", totalDonations: 500000, type: 'athletic' },
+  { date: "2024-11-05", totalDonations: 700000, type: 'central_directory' },
+  { date: "2024-11-06", totalDonations: 900000, type: 'central_directory' },
+  { date: "2024-10-01", totalDonations: 200000, type: 'academic_center' },
+  { date: "2024-10-02", totalDonations: 400000, type: 'academic_center' },
+  { date: "2024-10-03", totalDonations: 600000, type: 'athletic' },
+  { date: "2024-10-04", totalDonations: 800000, type: 'athletic' },
+  { date: "2024-10-05", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2024-10-06", totalDonations: 300000, type: 'central_directory' },
+  { date: "2024-09-01", totalDonations: 500000, type: 'academic_center' },
+  { date: "2024-09-02", totalDonations: 750000, type: 'academic_center' },
+  { date: "2024-09-03", totalDonations: 250000, type: 'athletic' },
+  { date: "2024-09-04", totalDonations: 300000, type: 'athletic' },
+  { date: "2024-09-05", totalDonations: 450000, type: 'central_directory' },
+  { date: "2024-09-06", totalDonations: 600000, type: 'central_directory' },
+  { date: "2025-01-01", totalDonations: 500000, type: 'academic_center' },
+  { date: "2025-01-02", totalDonations: 300000, type: 'academic_center' },
+  { date: "2025-01-03", totalDonations: 700000, type: 'athletic' },
+  { date: "2025-01-04", totalDonations: 200000, type: 'athletic' },
+  { date: "2025-01-05", totalDonations: 400000, type: 'central_directory' },
+  { date: "2025-01-06", totalDonations: 600000, type: 'central_directory' },
+  { date: "2025-02-01", totalDonations: 800000, type: 'academic_center' },
+  { date: "2025-02-02", totalDonations: 100000, type: 'academic_center' },
+  { date: "2025-02-03", totalDonations: 300000, type: 'athletic' },
+  { date: "2025-02-04", totalDonations: 500000, type: 'athletic' },
+  { date: "2025-02-05", totalDonations: 700000, type: 'central_directory' },
+  { date: "2025-02-06", totalDonations: 900000, type: 'central_directory' },
+  { date: "2025-03-01", totalDonations: 200000, type: 'academic_center' },
+  { date: "2025-03-02", totalDonations: 400000, type: 'academic_center' },
+  { date: "2025-03-03", totalDonations: 600000, type: 'athletic' },
+  { date: "2025-03-04", totalDonations: 800000, type: 'athletic' },
+  { date: "2025-03-05", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-03-06", totalDonations: 300000, type: 'central_directory' },
+  { date: "2025-04-01", totalDonations: 1000000, type: 'academic_center' },
+  { date: "2025-04-02", totalDonations: 1000, type: 'academic_center' },
+  { date: "2025-04-03", totalDonations: 1000000, type: 'academic_center' },
+  { date: "2025-04-04", totalDonations: 10000, type: 'academic_center' },
+  { date: "2025-04-05", totalDonations: 1000000, type: 'athletic' },
+  { date: "2025-04-06", totalDonations: 10000, type: 'athletic' },
+  { date: "2025-04-07", totalDonations: 1000000, type: 'athletic' },
+  { date: "2025-04-08", totalDonations: 10000, type: 'central_directory' },
+  { date: "2025-04-09", totalDonations: 100000, type: 'central_directory' },
+  { date: "2025-04-10", totalDonations: 500000, type: 'central_directory' },
+  { date: "2025-04-11", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-04-12", totalDonations: 10000, type: 'central_directory' },
+  { date: "2025-04-13", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-04-14", totalDonations: 10000, type: 'central_directory' },
+  { date: "2025-04-15", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-04-16", totalDonations: 10000, type: 'central_directory' },
+  { date: "2025-04-17", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-04-18", totalDonations: 10000, type: 'central_directory' },
+  { date: "2025-04-19", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-04-20", totalDonations: 10000, type: 'central_directory' },
+  { date: "2025-04-21", totalDonations: 1000000, type: 'central_directory' },
+  { date: "2025-04-22", totalDonations: 500000, type: 'academic_center' },
+  { date: "2025-04-23", totalDonations: 750000, type: 'academic_center' },
+  { date: "2025-04-24", totalDonations: 250000, type: 'athletic' },
+  { date: "2025-04-25", totalDonations: 300000, type: 'athletic' },
+  { date: "2025-04-26", totalDonations: 450000, type: 'central_directory' },
+  { date: "2025-04-27", totalDonations: 600000, type: 'central_directory' },
+  { date: "2025-04-28", totalDonations: 800000, type: 'academic_center' },
+  { date: "2025-04-29", totalDonations: 200000, type: 'academic_center' },
+  { date: "2025-04-30", totalDonations: 100000, type: 'athletic' },
+  { date: "2025-05-01", totalDonations: 400000, type: 'athletic' },
+  { date: "2025-05-02", totalDonations: 900000, type: 'central_directory' },
+  { date: "2025-05-03", totalDonations: 700000, type: 'central_directory' },
+  { date: "2025-05-04", totalDonations: 300000, type: 'academic_center' },
+  { date: "2025-05-05", totalDonations: 500000, type: 'academic_center' },
+  { date: "2025-05-06", totalDonations: 600000, type: 'athletic' },
+  { date: "2025-05-07", totalDonations: 1000000, type: 'athletic' },
+  { date: "2025-05-08", totalDonations: 200000, type: 'central_directory' },
+  { date: "2025-05-09", totalDonations: 300000, type: 'central_directory' },
+  { date: "2025-05-10", totalDonations: 400000, type: 'academic_center' },
+  { date: "2025-05-11", totalDonations: 500000, type: 'academic_center' },
+];
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  desktop: {
-    label: "Desktop",
+  totalDonations: {
+    label: "Doações totais: R$",
     color: "var(--primary)",
   },
-  mobile: {
-    label: "Mobile",
-    color: "var(--primary)",
-  },
-} satisfies ChartConfig
+  
+} satisfies ChartConfig;
 
 export function ChartAreaInteractive() {
-  const isMobile = useIsMobile()
-  const [timeRange, setTimeRange] = React.useState("90d")
+  const isMobile = useIsMobile();
+  const [timeRange, setTimeRange] = React.useState("90d");
 
   React.useEffect(() => {
     if (isMobile) {
-      setTimeRange("7d")
+      setTimeRange("7d");
     }
-  }, [isMobile])
+  }, [isMobile]);
 
   const filteredData = chartData.filter((item) => {
-    const date = new Date(item.date)
-    const referenceDate = new Date("2024-06-30")
-    let daysToSubtract = 90
-    if (timeRange === "30d") {
-      daysToSubtract = 30
+    const date = new Date(item.date);
+    const referenceDate = new Date();
+    let daysToSubtract = 365;
+
+    if (timeRange === "90d") {
+      daysToSubtract = 90;
+    } else if (timeRange === "30d") {
+      daysToSubtract = 30;
     } else if (timeRange === "7d") {
-      daysToSubtract = 7
+      daysToSubtract = 7;
     }
-    const startDate = new Date(referenceDate)
-    startDate.setDate(startDate.getDate() - daysToSubtract)
-    return date >= startDate
-  })
+    if (timeRange === "30d") {
+      daysToSubtract = 30;
+    } else if (timeRange === "7d") {
+      daysToSubtract = 7;
+    }
+    const startDate = new Date(referenceDate);
+    startDate.setDate(startDate.getDate() - daysToSubtract);
+    return date >= startDate;
+  });
+
+  const totalDonations = React.useMemo(
+    () =>
+      filteredData.reduce((acc, { totalDonations }) => acc + totalDonations, 0),
+    [filteredData]
+  );
+
+  const formatBRL = (value: number) =>
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      maximumFractionDigits: 0, // remove decimals, keep if you need them
+    }).format(value);
 
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>Doações</CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
-            Total for the last 3 months
+            Total de doações no período: {formatBRL(totalDonations)}
           </span>
           <span className="@[540px]/card:hidden">Last 3 months</span>
         </CardDescription>
@@ -96,9 +186,10 @@ export function ChartAreaInteractive() {
             variant="outline"
             className="hidden *:data-[slot=toggle-group-item]:!px-4 @[767px]/card:flex"
           >
-            <ToggleGroupItem value="90d">Last 3 months</ToggleGroupItem>
-            <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
-            <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
+            <ToggleGroupItem value="365d">Todo o ano</ToggleGroupItem>
+            <ToggleGroupItem value="90d">Últimos 3 meses</ToggleGroupItem>
+            <ToggleGroupItem value="30d">Últimos 30 dias</ToggleGroupItem>
+            <ToggleGroupItem value="7d">Últimos 7 dias</ToggleGroupItem>
           </ToggleGroup>
           <Select value={timeRange} onValueChange={setTimeRange}>
             <SelectTrigger
@@ -129,7 +220,13 @@ export function ChartAreaInteractive() {
         >
           <AreaChart data={filteredData}>
             <defs>
-              <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient
+                id="fillTotalDonations"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
                 <stop
                   offset="5%"
                   stopColor="var(--color-desktop)"
@@ -162,11 +259,11 @@ export function ChartAreaInteractive() {
               tickMargin={8}
               minTickGap={32}
               tickFormatter={(value) => {
-                const date = new Date(value)
+                const date = new Date(value);
                 return date.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
-                })
+                });
               }}
             />
             <ChartTooltip
@@ -178,29 +275,22 @@ export function ChartAreaInteractive() {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
-                    })
+                    });
                   }}
                   indicator="dot"
                 />
               }
             />
             <Area
-              dataKey="mobile"
+              dataKey="totalDonations"
               type="natural"
-              fill="url(#fillMobile)"
+              fill="url(#fillTotalDonations)"
               stroke="var(--color-mobile)"
-              stackId="a"
-            />
-            <Area
-              dataKey="desktop"
-              type="natural"
-              fill="url(#fillDesktop)"
-              stroke="var(--color-desktop)"
               stackId="a"
             />
           </AreaChart>
         </ChartContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
