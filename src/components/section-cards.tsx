@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TrendingUp } from "lucide-react";
 
 export function SectionCards() {
   return (

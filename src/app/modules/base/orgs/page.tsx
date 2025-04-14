@@ -1,7 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 import { useEffect, useState } from 'react';
-
-import Image from 'next/image';
 
 export interface TOrg {
 	name: string
@@ -55,7 +54,6 @@ export default function Orgs() {
 									<img
 										src={`https://source.unsplash.com/random/300x200`}
 										alt={`Organization ${startIndex + index + 1}`}
-										fill
 										sizes="(max-width: 768px) 100vw, 300px"
 										className="object-cover"
 									/>

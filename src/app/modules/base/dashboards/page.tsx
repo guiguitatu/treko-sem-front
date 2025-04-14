@@ -1,4 +1,4 @@
-import { ChartMetricInteractive } from "@/components/chart-area-interactive";
+import { ChartMetricInteractive } from "@/components/chart-metric-interactive";
 import { SectionCards } from "@/components/section-cards";
 
 
