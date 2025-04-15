@@ -19,6 +19,7 @@ import { Building, DollarSign, User } from "lucide-react";
 import Image from "next/image";
 
 import TrekoLogo from "@/app/assets/treko_logo.svg";
+import { NavCollapsable } from "./nav-collapsable";
 
 const data = {
   user: {
@@ -33,11 +34,7 @@ const data = {
       url: "/modules/base/dashboards",
       icon: IconDashboard,
     },
-    {
-      title: "Entidades",
-      url: "/modules/base/entity/academic_center",
-      icon: Building,
-    },
+
     {
       title: "Representantes",
       url: "#",
@@ -55,6 +52,24 @@ const data = {
       title: "Configurações",
       url: "#",
       icon: IconSettings,
+    },
+  ],
+
+  navCollapsable: [
+    {
+      title: "Entidades",
+      url: "/modules/base/orgs/academic_center",
+      icon: Building,
+      items: [
+        {
+          title: "Centro Acadêmico",
+          url: "/modules/base/orgs/academic_center",
+        },
+        {
+          title: "Diretório Central",
+          url: "/modules/base/orgs/central_directory",
+        },
+      ],
     },
   ],
 };
@@ -83,6 +98,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavCollapsable items={data.navCollapsable} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
