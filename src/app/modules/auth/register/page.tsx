@@ -58,12 +58,6 @@ export default function LoginPage() {
               onClick={handleLogin}
             />
           </form>
-          <p className="mt-4 text-center text-sm text-gray-600">
-            Não tem uma conta?{' '}
-            <a href="/modules/base/dashboard" className="text-blue-600 hover:underline">
-              Cadastre-se
-            </a>
-          </p>
         </div>
       </div>
       <div className="hidden lg:block flex-1 bg-gray-200">

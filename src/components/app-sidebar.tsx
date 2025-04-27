@@ -58,7 +58,7 @@ const data = {
   navCollapsable: [
     {
       title: "Entidades",
-      url: "/modules/base/orgs/academic_center",
+      url: "/modules/base/orgs/",
       icon: Building,
       items: [
         {
