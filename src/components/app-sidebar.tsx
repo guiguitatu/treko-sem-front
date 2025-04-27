@@ -62,6 +62,10 @@ const data = {
       icon: Building,
       items: [
         {
+          title: "Todas",
+          url: "/modules/base/orgs/all",
+        },
+        {
           title: "Centro Acadêmico",
           url: "/modules/base/orgs/academic_center",
         },
