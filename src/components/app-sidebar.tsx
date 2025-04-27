@@ -31,13 +31,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/modules/base/dashboards",
+      url: "/dashboards",
       icon: IconDashboard,
     },
 
     {
       title: "Representantes",
-      url: "#",
+      url: "/representatives",
       icon: User,
     },
     {
@@ -58,20 +58,20 @@ const data = {
   navCollapsable: [
     {
       title: "Entidades",
-      url: "/modules/base/orgs/",
+      url: "/orgs",
       icon: Building,
       items: [
         {
-          title: "Todas",
-          url: "/modules/base/orgs/all",
+          title: "Todos",
+          url: "/orgs/all",
         },
         {
           title: "Centro Acadêmico",
-          url: "/modules/base/orgs/academic_center",
+          url: "/orgs/academic_center",
         },
         {
           title: "Diretório Central",
-          url: "/modules/base/orgs/central_directory",
+          url: "/orgs/central_directory",
         },
       ],
     },
