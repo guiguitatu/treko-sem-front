@@ -7,20 +7,36 @@ export default function usersPage() {
       <h1 className="text-2xl font-bold mb-6 text-black">Usuários registrados no Sistema</h1>
       <table className="[&_tr]:border-b sticky top-0 z-10">
         <thead>
-          <tr className='hover:bg-muted/50 border-b '>
-            <th className="border border-gray-300 px-4 py-2">ID</th>
-            <th className="border border-gray-300 px-4 py-2">Nome</th>
-            <th className="border border-gray-300 px-4 py-2">Email</th>
+          <tr className='hover:bg-muted/50 border-b'>
+            {Object.keys(users[0]).map((key) => (
+              <th key={key} className="border border-gray-300 px-4 py-2">
+            {key.charAt(0).toUpperCase() + key.slice(1)}
+              </th>
+            ))}
             <th className="border border-gray-300 px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((users) => (
-            <tr key={users.id}>
-              <td className="border border-gray-300 px-4 py-2 w-[10%] md:text-sm lg:text-base text-xs">{users.id}</td>
-              <td className="border border-gray-300 px-4 py-2 w-[20%] md:text-sm lg:text-base text-xs">{users.name}</td>
-              <td className="border border-gray-300 px-4 py-2 xl:w-[40%] w-[30%] md:text-sm lg:text-base text-xs">{users.email}</td>
-              <td className="flex border border-gray-200 px-4 py-2 md:text-sm text-xs justify-center"><a href={`user/${users.id}`}><button className="bg-[var(--paleta3)] p-2 rounded-[10] m-2" >Alterar users</button></a><a><button className="bg-[#ff4040] p-2 rounded-[10] m-2">Delete users</button></a></td>
+          {users.map((user) => (
+            <tr key={user.id}>
+              {Object.values(user).map((value, index) => (
+            <td
+              key={index}
+              className="border border-gray-300 px-4 py-2 md:text-sm lg:text-base text-xs"
+            >
+              {value}
+            </td>
+              ))}
+              <td className="flex border border-gray-200 px-4 py-2 md:text-sm text-xs justify-center">
+            <a href={`user/${user.id}`}>
+              <button className="bg-[var(--paleta3)] p-2 rounded-[10] m-2">
+                Alterar
+              </button>
+            </a>
+            <button className="bg-[#ff4040] p-2 rounded-[10] m-2">
+              Delete
+            </button>
+              </td>
             </tr>
           ))}
         </tbody>
