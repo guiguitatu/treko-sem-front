@@ -15,6 +15,7 @@ import {
 	Legend,
 	ResponsiveContainer,
 } from "recharts"
+import { Badge } from "@/components/ui/badge"
 
 interface ChartData {
 	name: string
@@ -59,7 +60,7 @@ export default function Org() {
 					{/* Left Panel: Dashboard with Recharts and Organization Info */}
 					<ResizablePanel minSize={10} defaultSize={70}>
 						<div className="p-4">
-							<h2 className="text-xl font-semibold mb-4">Dashboard</h2>
+							<h2 className="text-xl font-semibold mb-4">Fluxo de doeações</h2>
 							<div className="h-48">
 								<ResponsiveContainer width="100%" height="100%">
 									<LineChart data={sampleChartData}>
@@ -77,18 +78,23 @@ export default function Org() {
 					{/* Right Panel: Additional content / details (if needed) */}
 					<ResizableHandle />
 					<ResizablePanel minSize={10}>
-						<div className="p-4">
-							<h2 className="text-xl font-semibold mb-4">Additional Details</h2>
-
+						<div className="p-4 flex-col gap-2">
+							<h2 className="text-xl font-semibold mb-4">Detalhes sobre a organização:</h2>
 							<div className="mt-6">
-								<h3 className="text-lg font-semibold mb-2">Organization Info</h3>
-								<p className="mb-1"><strong>Name:</strong> {currentOrg.name}</p>
+								<p className="my-2">Nome: <Badge variant='secondary' >{currentOrg.name}</Badge></p>
 								{currentOrg.description && (
-									<p className="mb-1 font-bold"><p className="font-medium">Description:</p> {currentOrg.description}</p>
+									<p className="mb-1"><p className="font-medium">Description:</p> {currentOrg.description}</p>
 								)}
 							</div>
 							{/* Replace with actual administrators data if available */}
-							<p className="mb-1"><strong>Administrators:</strong> Admin1, Admin2</p>
+							<p className="my-2">
+								Administradores:
+								{currentOrg.admins.map((admin: string) => (
+									<Badge variant='outline' key={admin}>
+										{admin}
+									</Badge>
+								))}
+							</p>
 						</div>
 					</ResizablePanel>
 				</ResizablePanelGroup>

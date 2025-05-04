@@ -9,6 +9,8 @@ export interface TOrg {
 	image_url?: string
 	id: string
 	description?: string
+	admins: string[]
+
 }
 
 export default function Orgs() {
@@ -32,7 +34,13 @@ export default function Orgs() {
 		setOrgs([{
 			name: "test",
 			image_url: "https://media.tenor.com/Ol7PciW7zQIAAAAC/calabreso-calma-calabreso.gif",
-			id: "1"
+			id: "1",
+			description: "oii nos dê diheiro 🙈🙈🙈",
+			admins: [
+				'oii',
+				'tchauuu'
+			]
+
 		}] as TOrg[])
 	}, [])
 
