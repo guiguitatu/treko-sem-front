@@ -20,6 +20,7 @@ import Image from "next/image";
 
 import TrekoLogo from "@/app/assets/treko_logo.svg";
 import { NavCollapsable } from "./nav-collapsable";
+import { ModeToggle } from "./theme-switcher";
 
 const data = {
   user: {
@@ -93,7 +94,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   src={TrekoLogo}
                   width={120}
                   height={50}
-                  alt={"Treko"}
+                  alt="Treko"
+                  className="dark:invert"
                 ></Image>
               </a>
             </SidebarMenuButton>
@@ -105,7 +107,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavCollapsable items={data.navCollapsable} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="flex flex-row items-center justify-center  gap-1">
+        <ModeToggle />
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
