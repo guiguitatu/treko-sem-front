@@ -3,6 +3,8 @@ import "@/app/globals.css";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider, useTheme } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/theme-switcher";
 
 export const metadata: Metadata = {
   title: "Treko",
@@ -14,23 +16,27 @@ export default function BaseLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html>
       <link rel="icon" href="/favicon.svg" />
       <body className="w-screen h-screen">
-        <SidebarProvider>
-          <AppSidebar variant="inset" />
-          <SidebarInset>
-            <SiteHeader />
-            <div className="flex flex-1 flex-col">
-              <div className="@container/main flex flex-1 flex-col gap-2">
-                <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-                  {children}
+        <ThemeProvider>
+          <SidebarProvider>
+            <AppSidebar variant="inset" />
+            <SidebarInset>
+              <SiteHeader />
+              <div className="flex flex-1 flex-col">
+                <div className="@container/main flex flex-1 flex-col gap-2">
+                  <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+                    {children}
+                  </div>
                 </div>
               </div>
-            </div>
-          </SidebarInset>
-        </SidebarProvider>
+            </SidebarInset>
+          </SidebarProvider>
+        </ThemeProvider>
+
       </body>
     </html>
   );
