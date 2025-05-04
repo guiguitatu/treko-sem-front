@@ -46,18 +46,18 @@ export function NavCollapsable({
             <SidebarMenuItem>
               <SidebarMenuButton tooltip={item.title} className="flex items-center">
                 {item.icon && <item.icon className="mr-2" />}
-                
+
                 <Link href={item.url} className="flex-1">
                   <span>{item.title}</span>
                 </Link>
 
                 {item.items && (
                   <CollapsibleTrigger asChild>
-                    <button aria-label="Toggle submenu" className="ml-2">
+                    <div aria-label="Toggle submenu" className="ml-2">
                       <ChevronRight
                         className="transition-transform duration-200 data-[state=open]:rotate-90"
                       />
-                    </button>
+                    </div>
                   </CollapsibleTrigger>
                 )}
               </SidebarMenuButton>
