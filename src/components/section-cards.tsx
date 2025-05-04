@@ -18,15 +18,14 @@ export function SectionCards() {
           <CardDescription>
             Percentual de doações no último mês
           </CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            <div className="flex items-center m-10">
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl flex-col">
+            <div className="flex-col gap-2 items-center m-10">
               +90%{" "}
-              <CardDescription className="text-sm font-bold text-black">
-                
+              <CardDescription className="text-sm font-bold flex-col">
                 Em relação ao último mês
               </CardDescription>
             </div>
-            
+
           </CardTitle>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">

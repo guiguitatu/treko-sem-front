@@ -114,7 +114,7 @@ export default function DashboardPage() {
               metricKey="totalDonations"
               label="Total de doações: "
               aggregation="sum"
-              color="var(--green)"
+              color="var(--primary)"
             />
 
             <ChartMetricInteractive
@@ -131,7 +131,7 @@ export default function DashboardPage() {
               metricKey="churnRate"
               label="Taxa de churn: "
               aggregation="avg"
-              color="var(--red)"/>
+              color="var(--red)" />
           </div>
         </div>
       </div>
