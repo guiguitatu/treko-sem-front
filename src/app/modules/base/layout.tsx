@@ -5,8 +5,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 
 import { OrgProvider } from "@/app/providers/OrgProvider";
-import { ThemeProvider, useTheme } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/theme-switcher";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 export const metadata: Metadata = {

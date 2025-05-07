@@ -1,5 +1,4 @@
 import users from '@/app/lib/placeholder-data';
-import { Inria_Serif } from 'next/font/google';
 
 export default function UserPage({params}: {params: {id: string}}) {
 
