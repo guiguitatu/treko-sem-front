@@ -1,615 +1,582 @@
 [
-    {
-      "id": 1,
-      "header": "Cover page",
-      "type": "Cover page",
-      "status": "In Process",
-      "target": "18",
-      "limit": "5",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 2,
-      "header": "Table of contents",
-      "type": "Table of contents",
-      "status": "Done",
-      "target": "29",
-      "limit": "24",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 3,
-      "header": "Executive summary",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "10",
-      "limit": "13",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 4,
-      "header": "Technical approach",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "27",
-      "limit": "23",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 5,
-      "header": "Design",
-      "type": "Narrative",
-      "status": "In Process",
-      "target": "2",
-      "limit": "16",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 6,
-      "header": "Capabilities",
-      "type": "Narrative",
-      "status": "In Process",
-      "target": "20",
-      "limit": "8",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 7,
-      "header": "Integration with existing systems",
-      "type": "Narrative",
-      "status": "In Process",
-      "target": "19",
-      "limit": "21",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 8,
-      "header": "Innovation and Advantages",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "25",
-      "limit": "26",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 9,
-      "header": "Overview of EMR's Innovative Solutions",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "7",
-      "limit": "23",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 10,
-      "header": "Advanced Algorithms and Machine Learning",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "30",
-      "limit": "28",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 11,
-      "header": "Adaptive Communication Protocols",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "9",
-      "limit": "31",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 12,
-      "header": "Advantages Over Current Technologies",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "12",
-      "limit": "0",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 13,
-      "header": "Past Performance",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "22",
-      "limit": "33",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 14,
-      "header": "Customer Feedback and Satisfaction Levels",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "15",
-      "limit": "34",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 15,
-      "header": "Implementation Challenges and Solutions",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "3",
-      "limit": "35",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 16,
-      "header": "Security Measures and Data Protection Policies",
-      "type": "Narrative",
-      "status": "In Process",
-      "target": "6",
-      "limit": "36",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 17,
-      "header": "Scalability and Future Proofing",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "4",
-      "limit": "37",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 18,
-      "header": "Cost-Benefit Analysis",
-      "type": "Plain language",
-      "status": "Done",
-      "target": "14",
-      "limit": "38",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 19,
-      "header": "User Training and Onboarding Experience",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "17",
-      "limit": "39",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 20,
-      "header": "Future Development Roadmap",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "11",
-      "limit": "40",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 21,
-      "header": "System Architecture Overview",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "24",
-      "limit": "18",
-      "reviewer": "Maya Johnson"
-    },
-    {
-      "id": 22,
-      "header": "Risk Management Plan",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "15",
-      "limit": "22",
-      "reviewer": "Carlos Rodriguez"
-    },
-    {
-      "id": 23,
-      "header": "Compliance Documentation",
-      "type": "Legal",
-      "status": "In Process",
-      "target": "31",
-      "limit": "27",
-      "reviewer": "Sarah Chen"
-    },
-    {
-      "id": 24,
-      "header": "API Documentation",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "8",
-      "limit": "12",
-      "reviewer": "Raj Patel"
-    },
-    {
-      "id": 25,
-      "header": "User Interface Mockups",
-      "type": "Visual",
-      "status": "In Process",
-      "target": "19",
-      "limit": "25",
-      "reviewer": "Leila Ahmadi"
-    },
-    {
-      "id": 26,
-      "header": "Database Schema",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "22",
-      "limit": "20",
-      "reviewer": "Thomas Wilson"
-    },
-    {
-      "id": 27,
-      "header": "Testing Methodology",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "17",
-      "limit": "14",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 28,
-      "header": "Deployment Strategy",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "26",
-      "limit": "30",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 29,
-      "header": "Budget Breakdown",
-      "type": "Financial",
-      "status": "In Process",
-      "target": "13",
-      "limit": "16",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 30,
-      "header": "Market Analysis",
-      "type": "Research",
-      "status": "Done",
-      "target": "29",
-      "limit": "32",
-      "reviewer": "Sophia Martinez"
-    },
-    {
-      "id": 31,
-      "header": "Competitor Comparison",
-      "type": "Research",
-      "status": "In Process",
-      "target": "21",
-      "limit": "19",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 32,
-      "header": "Maintenance Plan",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "16",
-      "limit": "23",
-      "reviewer": "Alex Thompson"
-    },
-    {
-      "id": 33,
-      "header": "User Personas",
-      "type": "Research",
-      "status": "In Process",
-      "target": "27",
-      "limit": "24",
-      "reviewer": "Nina Patel"
-    },
-    {
-      "id": 34,
-      "header": "Accessibility Compliance",
-      "type": "Legal",
-      "status": "Done",
-      "target": "18",
-      "limit": "21",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 35,
-      "header": "Performance Metrics",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "23",
-      "limit": "26",
-      "reviewer": "David Kim"
-    },
-    {
-      "id": 36,
-      "header": "Disaster Recovery Plan",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "14",
-      "limit": "17",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 37,
-      "header": "Third-party Integrations",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "25",
-      "limit": "28",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 38,
-      "header": "User Feedback Summary",
-      "type": "Research",
-      "status": "Done",
-      "target": "20",
-      "limit": "15",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 39,
-      "header": "Localization Strategy",
-      "type": "Narrative",
-      "status": "In Process",
-      "target": "12",
-      "limit": "19",
-      "reviewer": "Maria Garcia"
-    },
-    {
-      "id": 40,
-      "header": "Mobile Compatibility",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "28",
-      "limit": "31",
-      "reviewer": "James Wilson"
-    },
-    {
-      "id": 41,
-      "header": "Data Migration Plan",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "19",
-      "limit": "22",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 42,
-      "header": "Quality Assurance Protocols",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "30",
-      "limit": "33",
-      "reviewer": "Priya Singh"
-    },
-    {
-      "id": 43,
-      "header": "Stakeholder Analysis",
-      "type": "Research",
-      "status": "In Process",
-      "target": "11",
-      "limit": "14",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 44,
-      "header": "Environmental Impact Assessment",
-      "type": "Research",
-      "status": "Done",
-      "target": "24",
-      "limit": "27",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 45,
-      "header": "Intellectual Property Rights",
-      "type": "Legal",
-      "status": "In Process",
-      "target": "17",
-      "limit": "20",
-      "reviewer": "Sarah Johnson"
-    },
-    {
-      "id": 46,
-      "header": "Customer Support Framework",
-      "type": "Narrative",
-      "status": "Done",
-      "target": "22",
-      "limit": "25",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 47,
-      "header": "Version Control Strategy",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "15",
-      "limit": "18",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 48,
-      "header": "Continuous Integration Pipeline",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "26",
-      "limit": "29",
-      "reviewer": "Michael Chen"
-    },
-    {
-      "id": 49,
-      "header": "Regulatory Compliance",
-      "type": "Legal",
-      "status": "In Process",
-      "target": "13",
-      "limit": "16",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 50,
-      "header": "User Authentication System",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "28",
-      "limit": "31",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 51,
-      "header": "Data Analytics Framework",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "21",
-      "limit": "24",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 52,
-      "header": "Cloud Infrastructure",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "16",
-      "limit": "19",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 53,
-      "header": "Network Security Measures",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "29",
-      "limit": "32",
-      "reviewer": "Lisa Wong"
-    },
-    {
-      "id": 54,
-      "header": "Project Timeline",
-      "type": "Planning",
-      "status": "Done",
-      "target": "14",
-      "limit": "17",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 55,
-      "header": "Resource Allocation",
-      "type": "Planning",
-      "status": "In Process",
-      "target": "27",
-      "limit": "30",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 56,
-      "header": "Team Structure and Roles",
-      "type": "Planning",
-      "status": "Done",
-      "target": "20",
-      "limit": "23",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 57,
-      "header": "Communication Protocols",
-      "type": "Planning",
-      "status": "In Process",
-      "target": "15",
-      "limit": "18",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 58,
-      "header": "Success Metrics",
-      "type": "Planning",
-      "status": "Done",
-      "target": "30",
-      "limit": "33",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 59,
-      "header": "Internationalization Support",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "23",
-      "limit": "26",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 60,
-      "header": "Backup and Recovery Procedures",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "18",
-      "limit": "21",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 61,
-      "header": "Monitoring and Alerting System",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "25",
-      "limit": "28",
-      "reviewer": "Daniel Park"
-    },
-    {
-      "id": 62,
-      "header": "Code Review Guidelines",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "12",
-      "limit": "15",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 63,
-      "header": "Documentation Standards",
-      "type": "Technical content",
-      "status": "In Process",
-      "target": "27",
-      "limit": "30",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 64,
-      "header": "Release Management Process",
-      "type": "Planning",
-      "status": "Done",
-      "target": "22",
-      "limit": "25",
-      "reviewer": "Assign reviewer"
-    },
-    {
-      "id": 65,
-      "header": "Feature Prioritization Matrix",
-      "type": "Planning",
-      "status": "In Process",
-      "target": "19",
-      "limit": "22",
-      "reviewer": "Emma Davis"
-    },
-    {
-      "id": 66,
-      "header": "Technical Debt Assessment",
-      "type": "Technical content",
-      "status": "Done",
-      "target": "24",
-      "limit": "27",
-      "reviewer": "Eddie Lake"
-    },
-    {
-      "id": 67,
-      "header": "Capacity Planning",
-      "type": "Planning",
-      "status": "In Process",
-      "target": "21",
-      "limit": "24",
-      "reviewer": "Jamik Tashpulatov"
-    },
-    {
-      "id": 68,
-      "header": "Service Level Agreements",
-      "type": "Legal",
-      "status": "Done",
-      "target": "26",
-      "limit": "29",
-      "reviewer": "Assign reviewer"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-PUCPR-CTB",
+    "cnpj": "01.111.111/0001-11",
+    "nome_fantasia": "Diretório Central dos Estudantes PUCPR Curitiba",
+    "razao_social": "Diretório Central dos Estudantes da PUCPR - Curitiba",
+    "representante": "Lucas Souza",
+    "universidade": "Pontifícia Universidade Católica do Paraná",
+    "campus": "Curitiba",
+    "numero_membros": 1500,
+    "data_fundacao": "2000-03-10",
+    "endereco": {
+      "logradouro": "Rua Universitária",
+      "numero": "1500",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "cep": "80215-901"
+    },
+    "telefone": "(41) 3271-6000",
+    "email": "dce.curitiba@pucpr.br",
+    "site": "https://dce.pucpr.br/curitiba",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.pucpr.ctb",
+      "instagram": "instagram.com/dce.pucpr.ctb"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 2,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-PUCPR-LDB",
+    "cnpj": "02.222.222/0001-22",
+    "nome_fantasia": "Diretório Central dos Estudantes PUCPR Londrina",
+    "razao_social": "Diretório Central dos Estudantes da PUCPR - Londrina",
+    "representante": "Mariana Alves",
+    "universidade": "Pontifícia Universidade Católica do Paraná",
+    "campus": "Londrina",
+    "numero_membros": 1200,
+    "data_fundacao": "2001-05-20",
+    "endereco": {
+      "logradouro": "Avenida Universitária",
+      "numero": "1020",
+      "bairro": "Centro",
+      "cidade": "Londrina",
+      "estado": "PR",
+      "cep": "86010-000"
+    },
+    "telefone": "(43) 3371-7000",
+    "email": "dce.londrina@pucpr.br",
+    "site": "https://dce.pucpr.br/londrina",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.pucpr.ldb",
+      "instagram": "instagram.com/dce.pucpr.ldb"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 3,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-PUCPR-MGA",
+    "cnpj": "03.333.333/0001-33",
+    "nome_fantasia": "Diretório Central dos Estudantes PUCPR Maringá",
+    "razao_social": "Diretório Central dos Estudantes da PUCPR - Maringá",
+    "representante": "Bruno Lima",
+    "universidade": "Pontifícia Universidade Católica do Paraná",
+    "campus": "Maringá",
+    "numero_membros": 900,
+    "data_fundacao": "2002-07-15",
+    "endereco": {
+      "logradouro": "Rua do Estudante",
+      "numero": "500",
+      "bairro": "Zona 7",
+      "cidade": "Maringá",
+      "estado": "PR",
+      "cep": "87020-900"
+    },
+    "telefone": "(44) 3621-8000",
+    "email": "dce.maringa@pucpr.br",
+    "site": "https://dce.pucpr.br/maringa",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.pucpr.mga",
+      "instagram": "instagram.com/dce.pucpr.mga"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 4,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-PUCPR-TDL",
+    "cnpj": "04.444.444/0001-44",
+    "nome_fantasia": "Diretório Central dos Estudantes PUCPR Toledo",
+    "razao_social": "Diretório Central dos Estudantes da PUCPR - Toledo",
+    "representante": "Camila Fernandes",
+    "universidade": "Pontifícia Universidade Católica do Paraná",
+    "campus": "Toledo",
+    "numero_membros": 800,
+    "data_fundacao": "2003-09-05",
+    "endereco": {
+      "logradouro": "Av. Madre Leônia",
+      "numero": "250",
+      "bairro": "Centro",
+      "cidade": "Toledo",
+      "estado": "PR",
+      "cep": "85903-120"
+    },
+    "telefone": "(45) 3026-9000",
+    "email": "dce.toledo@pucpr.br",
+    "site": "https://dce.pucpr.br/toledo",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.pucpr.tdl",
+      "instagram": "instagram.com/dce.pucpr.tdl"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 5,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UFPR-CTB",
+    "cnpj": "05.555.555/0001-55",
+    "nome_fantasia": "Diretório Central dos Estudantes UFPR Curitiba",
+    "razao_social": "Diretório Central dos Estudantes da UFPR - Curitiba",
+    "representante": "Daniel Pereira",
+    "universidade": "Universidade Federal do Paraná",
+    "campus": "Curitiba",
+    "numero_membros": 1800,
+    "data_fundacao": "1995-04-12",
+    "endereco": {
+      "logradouro": "Rua XV de Novembro",
+      "numero": "1293",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "cep": "80020-310"
+    },
+    "telefone": "(41) 3360-1000",
+    "email": "dce.curitiba@ufpr.br",
+    "site": "https://dce.ufpr.br/curitiba",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.ufpr.ctb",
+      "instagram": "instagram.com/dce.ufpr.ctb"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 6,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UFPR-JDS",
+    "cnpj": "06.666.666/0001-66",
+    "nome_fantasia": "Diretório Central dos Estudantes UFPR Jandaia",
+    "razao_social": "Diretório Central dos Estudantes da UFPR - Jandaia do Sul",
+    "representante": "Fabiana Costa",
+    "universidade": "Universidade Federal do Paraná",
+    "campus": "Jandaia do Sul",
+    "numero_membros": 600,
+    "data_fundacao": "2005-11-22",
+    "endereco": {
+      "logradouro": "Rua Universitária",
+      "numero": "300",
+      "bairro": "Centro",
+      "cidade": "Jandaia do Sul",
+      "estado": "PR",
+      "cep": "86800-000"
+    },
+    "telefone": "(43) 3454-1100",
+    "email": "dce.jandaia@ufpr.br",
+    "site": "https://dce.ufpr.br/jandaia",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.ufpr.jds",
+      "instagram": "instagram.com/dce.ufpr.jds"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 7,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UFPR-PLT",
+    "cnpj": "07.777.777/0001-77",
+    "nome_fantasia": "Diretório Central dos Estudantes UFPR Palotina",
+    "razao_social": "Diretório Central dos Estudantes da UFPR - Palotina",
+    "representante": "Gustavo Rocha",
+    "universidade": "Universidade Federal do Paraná",
+    "campus": "Palotina",
+    "numero_membros": 500,
+    "data_fundacao": "2006-02-18",
+    "endereco": {
+      "logradouro": "Av. Brasil",
+      "numero": "450",
+      "bairro": "Centro",
+      "cidade": "Palotina",
+      "estado": "PR",
+      "cep": "85950-000"
+    },
+    "telefone": "(44) 9981-1200",
+    "email": "dce.palotina@ufpr.br",
+    "site": "https://dce.ufpr.br/palotina",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.ufpr.plt",
+      "instagram": "instagram.com/dce.ufpr.plt"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 8,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UEL-LDB",
+    "cnpj": "08.888.888/0001-88",
+    "nome_fantasia": "Diretório Central dos Estudantes UEL Londrina",
+    "razao_social": "Diretório Central dos Estudantes da UEL - Londrina",
+    "representante": "Heloísa Santos",
+    "universidade": "Universidade Estadual de Londrina",
+    "campus": "Londrina",
+    "numero_membros": 1100,
+    "data_fundacao": "1988-08-30",
+    "endereco": {
+      "logradouro": "Av. Celso Garcia Cid",
+      "numero": "200",
+      "bairro": "Centro",
+      "cidade": "Londrina",
+      "estado": "PR",
+      "cep": "86010-460"
+    },
+    "telefone": "(43) 3371-4000",
+    "email": "dce.londrina@uel.br",
+    "site": "https://dce.uel.br/londrina",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.uel.ldb",
+      "instagram": "instagram.com/dce.uel.ldb"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 9,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UEM-MGA",
+    "cnpj": "09.999.999/0001-99",
+    "nome_fantasia": "Diretório Central dos Estudantes UEM Maringá",
+    "razao_social": "Diretório Central dos Estudantes da UEM - Maringá",
+    "representante": "Igor Martins",
+    "universidade": "Universidade Estadual de Maringá",
+    "campus": "Maringá",
+    "numero_membros": 950,
+    "data_fundacao": "1990-06-12",
+    "endereco": {
+      "logradouro": "Av. Colombo",
+      "numero": "5790",
+      "bairro": "Zona 7",
+      "cidade": "Maringá",
+      "estado": "PR",
+      "cep": "87020-900"
+    },
+    "telefone": "(44) 3011-5000",
+    "email": "dce.maringa@uem.br",
+    "site": "https://dce.uem.br/maringa",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.uem.mga",
+      "instagram": "instagram.com/dce.uem.mga"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 10,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UTFPR-CTB",
+    "cnpj": "10.101.010/0001-10",
+    "nome_fantasia": "Diretório Central dos Estudantes UTFPR Curitiba",
+    "razao_social": "Diretório Central dos Estudantes da UTFPR - Curitiba",
+    "representante": "Juliana Almeida",
+    "universidade": "Universidade Tecnológica Federal do Paraná",
+    "campus": "Curitiba",
+    "numero_membros": 1300,
+    "data_fundacao": "1992-10-05",
+    "endereco": {
+      "logradouro": "Rua Dr. Washington Subtil Chueire",
+      "numero": "330",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "cep": "80210-170"
+    },
+    "telefone": "(41) 3310-6000",
+    "email": "dce.curitiba@utfpr.edu.br",
+    "site": "https://dce.utfpr.edu.br/curitiba",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.utfpr.ctb",
+      "instagram": "instagram.com/dce.utfpr.ctb"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 11,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UTFPR-LDB",
+    "cnpj": "11.111.111/0001-11",
+    "nome_fantasia": "Diretório Central dos Estudantes UTFPR Londrina",
+    "razao_social": "Diretório Central dos Estudantes da UTFPR - Londrina",
+    "representante": "Karina Pereira",
+    "universidade": "Universidade Tecnológica Federal do Paraná",
+    "campus": "Londrina",
+    "numero_membros": 700,
+    "data_fundacao": "1993-12-11",
+    "endereco": {
+      "logradouro": "Av. dos Pioneiros",
+      "numero": "3131",
+      "bairro": "Centro",
+      "cidade": "Londrina",
+      "estado": "PR",
+      "cep": "86036-350"
+    },
+    "telefone": "(43) 3371-6150",
+    "email": "dce.londrina@utfpr.edu.br",
+    "site": "https://dce.utfpr.edu.br/londrina",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.utfpr.ldb",
+      "instagram": "instagram.com/dce.utfpr.ldb"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 12,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UTFPR-PGA",
+    "cnpj": "12.121.212/0001-12",
+    "nome_fantasia": "Diretório Central dos Estudantes UTFPR Ponta Grossa",
+    "razao_social": "Diretório Central dos Estudantes da UTFPR - Ponta Grossa",
+    "representante": "Leonardo Rocha",
+    "universidade": "Universidade Tecnológica Federal do Paraná",
+    "campus": "Ponta Grossa",
+    "numero_membros": 650,
+    "data_fundacao": "1994-01-20",
+    "endereco": {
+      "logradouro": "Rua Felipe Schmidt",
+      "numero": "900",
+      "bairro": "Centro",
+      "cidade": "Ponta Grossa",
+      "estado": "PR",
+      "cep": "84010-000"
+    },
+    "telefone": "(42) 3220-6000",
+    "email": "dce.pg@utfpr.edu.br",
+    "site": "https://dce.utfpr.edu.br/pontagrossa",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.utfpr.pga",
+      "instagram": "instagram.com/dce.utfpr.pga"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 13,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UNIOESTE-CSV",
+    "cnpj": "13.131.313/0001-13",
+    "nome_fantasia": "Diretório Central dos Estudantes UNIOESTE Cascavel",
+    "razao_social": "Diretório Central dos Estudantes da UNIOESTE - Cascavel",
+    "representante": "Marcos Vinícius",
+    "universidade": "Universidade Estadual do Oeste do Paraná",
+    "campus": "Cascavel",
+    "numero_membros": 780,
+    "data_fundacao": "1996-06-30",
+    "endereco": {
+      "logradouro": "Av. Tarquínio Joslin dos Santos",
+      "numero": "1300",
+      "bairro": "Universitário",
+      "cidade": "Cascavel",
+      "estado": "PR",
+      "cep": "85819-110"
+    },
+    "telefone": "(45) 3218-3000",
+    "email": "dce.cascavel@unioeste.br",
+    "site": "https://dce.unioeste.br/cascavel",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.unioeste.csv",
+      "instagram": "instagram.com/dce.unioeste.csv"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 14,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UEL-APG",
+    "cnpj": "14.141.414/0001-14",
+    "nome_fantasia": "Diretório Central dos Estudantes UEL Arapongas",
+    "razao_social": "Diretório Central dos Estudantes da UEL - Arapongas",
+    "representante": "Paula Dias",
+    "universidade": "Universidade Estadual de Londrina",
+    "campus": "Arapongas",
+    "numero_membros": 400,
+    "data_fundacao": "1997-09-10",
+    "endereco": {
+      "logradouro": "Rua Pioneira",
+      "numero": "220",
+      "bairro": "Centro",
+      "cidade": "Arapongas",
+      "estado": "PR",
+      "cep": "86705-010"
+    },
+    "telefone": "(43) 3276-2000",
+    "email": "dce.arapongas@uel.br",
+    "site": "https://dce.uel.br/arapongas",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.uel.apg",
+      "instagram": "instagram.com/dce.uel.apg"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 15,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UFSC-FLN",
+    "cnpj": "15.151.515/0001-15",
+    "nome_fantasia": "Diretório Central dos Estudantes UFSC Florianópolis",
+    "razao_social": "Diretório Central dos Estudantes da UFSC - Florianópolis",
+    "representante": "Rafael Lima",
+    "universidade": "Universidade Federal de Santa Catarina",
+    "campus": "Florianópolis",
+    "numero_membros": 1400,
+    "data_fundacao": "1993-03-25",
+    "endereco": {
+      "logradouro": "Trindade",
+      "numero": "88040",
+      "bairro": "Trindade",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "88040-900"
+    },
+    "telefone": "(48) 3721-9000",
+    "email": "dce.florianopolis@ufsc.br",
+    "site": "https://dce.ufsc.br/florianopolis",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.ufsc.fln",
+      "instagram": "instagram.com/dce.ufsc.fln"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 16,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UFSC-BNU",
+    "cnpj": "16.161.616/0001-16",
+    "nome_fantasia": "Diretório Central dos Estudantes UFSC Blumenau",
+    "razao_social": "Diretório Central dos Estudantes da UFSC - Blumenau",
+    "representante": "Sofia Araújo",
+    "universidade": "Universidade Federal de Santa Catarina",
+    "campus": "Blumenau",
+    "numero_membros": 650,
+    "data_fundacao": "1998-11-12",
+    "endereco": {
+      "logradouro": "Rua São Paulo",
+      "numero": "3250",
+      "bairro": "Victor Konder",
+      "cidade": "Blumenau",
+      "estado": "SC",
+      "cep": "89012-000"
+    },
+    "telefone": "(47) 3321-8000",
+    "email": "dce.blumenau@ufsc.br",
+    "site": "https://dce.ufsc.br/blumenau",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.ufsc.bnu",
+      "instagram": "instagram.com/dce.ufsc.bnu"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 17,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-UNICAMP-CPS",
+    "cnpj": "17.171.717/0001-17",
+    "nome_fantasia": "Diretório Central dos Estudantes Unicamp Campinas",
+    "razao_social": "Diretório Central dos Estudantes da Unicamp - Campinas",
+    "representante": "Thiago Santos",
+    "universidade": "Universidade Estadual de Campinas",
+    "campus": "Campinas",
+    "numero_membros": 1600,
+    "data_fundacao": "1985-08-14",
+    "endereco": {
+      "logradouro": "Rua Sérgio Buarque de Holanda",
+      "numero": "651",
+      "bairro": "Barão Geraldo",
+      "cidade": "Campinas",
+      "estado": "SP",
+      "cep": "13083-972"
+    },
+    "telefone": "(19) 3521-6000",
+    "email": "dce.campinas@unicamp.br",
+    "site": "https://dce.unicamp.br/campinas",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.unicamp.cps",
+      "instagram": "instagram.com/dce.unicamp.cps"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 18,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-USP-SP",
+    "cnpj": "18.181.818/0001-18",
+    "nome_fantasia": "Diretório Central dos Estudantes USP São Paulo",
+    "razao_social": "Diretório Central dos Estudantes da USP - São Paulo",
+    "representante": "Vanessa Lima",
+    "universidade": "Universidade de São Paulo",
+    "campus": "São Paulo",
+    "numero_membros": 2000,
+    "data_fundacao": "1990-05-15",
+    "endereco": {
+      "logradouro": "Av. da Universidade",
+      "numero": "308",
+      "bairro": "Butantã",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "cep": "05508-090"
+    },
+    "telefone": "(11) 3091-5000",
+    "email": "dce.sp@usp.br",
+    "site": "https://dce.usp.br/sp",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.usp.sp",
+      "instagram": "instagram.com/dce.usp.sp"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 19,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-PUCRIO-RJ",
+    "cnpj": "19.191.919/0001-19",
+    "nome_fantasia": "Diretório Central dos Estudantes PUC-Rio",
+    "razao_social": "Diretório Central dos Estudantes da PUC-Rio",
+    "representante": "Eduarda Rocha",
+    "universidade": "Pontifícia Universidade Católica do Rio de Janeiro",
+    "campus": "Rio de Janeiro",
+    "numero_membros": 1700,
+    "data_fundacao": "1987-07-22",
+    "endereco": {
+      "logradouro": "Rua Marquês de São Vicente",
+      "numero": "225",
+      "bairro": "Gávea",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "cep": "22451-900"
+    },
+    "telefone": "(21) 3527-1000",
+    "email": "dce@puc-rio.br",
+    "site": "https://dce.puc-rio.br",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.pucrio",
+      "instagram": "instagram.com/dce.pucrio"
+    },
+    "status": "Ativo"
+  },
+  {
+    "id": 20,
+    "tipo": "Diretório Central",
+    "sigla": "DCE-PUCSP-SP",
+    "cnpj": "20.202.020/0001-20",
+    "nome_fantasia": "Diretório Central dos Estudantes PUC-SP",
+    "razao_social": "Diretório Central dos Estudantes da PUC-SP",
+    "representante": "Marília Gonçalves",
+    "universidade": "Pontifícia Universidade Católica de São Paulo",
+    "campus": "São Paulo",
+    "numero_membros": 1550,
+    "data_fundacao": "1989-11-05",
+    "endereco": {
+      "logradouro": "Rua Monte Alegre",
+      "numero": "984",
+      "bairro": "Perdizes",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "cep": "05014-901"
+    },
+    "telefone": "(11) 3670-8300",
+    "email": "dce@pucsp.br",
+    "site": "https://dce.pucsp.br",
+    "redes_sociais": {
+      "facebook": "facebook.com/dce.pucsp",
+      "instagram": "instagram.com/dce.pucsp"
+    },
+    "status": "Ativo"
+  }
+]
