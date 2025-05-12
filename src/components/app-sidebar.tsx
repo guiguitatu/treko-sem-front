@@ -43,7 +43,7 @@ const data = {
     },
     {
       title: "Doações",
-      url: "#",
+      url: "/modules/base/donations",
       icon: DollarSign,
     },
   ],
