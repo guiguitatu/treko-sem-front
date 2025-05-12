@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import { z } from "zod";
-import { useReactTable, ColumnDef, getCoreRowModel } from "@tanstack/react-table";
-import { Input } from "@/components/ui/input";
+import { useReactTable, ColumnDef, getCoreRowModel, getPaginationRowModel } from "@tanstack/react-table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
@@ -24,6 +23,7 @@ type DonationsDataTableProps = {
 export function DonationsDataTable({ data }: DonationsDataTableProps) {
   const [typeFilter, setTypeFilter] = React.useState("all");
   const [dateRange, setDateRange] = React.useState("all");
+  const [pageSize, setPageSize] = React.useState(10);
 
   const filteredData = React.useMemo(() => {
     const now = new Date();
@@ -73,10 +73,17 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
     data: filteredData,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    initialState: {
+      pagination: {
+        pageSize,
+      },
+    },
   });
 
   return (
     <div className="flex flex-col gap-4">
+      {/* Filtros acima da tabela */}
       <div className="flex flex-wrap gap-4 items-center">
         <Select value={typeFilter} onValueChange={setTypeFilter}>
           <SelectTrigger className="w-40">
@@ -103,7 +110,8 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
         </Select>
       </div>
 
-      <Table className="border rounded-3lg">
+      {/* Tabela */}
+      <Table className="border rounded-lg">
         <TableHeader className="bg-muted">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -126,7 +134,9 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {cell.column.columnDef.cell
-                      ? cell.column.columnDef.cell(cell.getContext())
+                      ? typeof cell.column.columnDef.cell === "function"
+                        ? cell.column.columnDef.cell(cell.getContext())
+                        : cell.getValue()
                       : cell.getValue()}
                   </TableCell>
                 ))}
@@ -141,6 +151,29 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
           )}
         </TableBody>
       </Table>
+
+      {/* Controles de paginação abaixo da tabela */}
+      <div className="flex items-center justify-between">
+        <div className="text-sm text-muted-foreground">
+          Showing {table.getRowModel().rows.length} of {filteredData.length} records
+        </div>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
