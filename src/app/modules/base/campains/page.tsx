@@ -17,7 +17,7 @@ export default function DonationsPage() {
             return (
               <a
                 key={c.id}
-                href={`donation/${c.id}`}
+                href={`campains/${c.id}`}
                 className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
                 <div className="p-4 h-full flex flex-col justify-between">

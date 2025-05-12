@@ -153,7 +153,7 @@ export default function DonationDetailPage({ params }: DonationPageProps) {
       </form>
 
       <div className="mt-6">
-        <a href="/modules/base/donation" className="text-blue-500 hover:underline">
+        <a href="/modules/base/campains" className="text-blue-500 hover:underline">
           ← Voltar para lista de doações
         </a>
       </div>
