@@ -127,6 +127,26 @@ export default function DonationDetailPage({ params }: DonationPageProps) {
             />
             </div>
         ): null }
+        {campain.accepted == "toys" ? (
+            <div>
+            <label
+                htmlFor="donation_amount"
+                className="block text-sm font-medium text-gray-700"
+            >
+                Quantidade de brinquedos (peças)
+            </label>
+            <input
+                type="number"
+                name="donation_amount"
+                id="donation_amount"
+                min="1"
+                step="1"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded p-2"
+            />
+            </div>
+        ): null }
+        {}
     
         <div>
           <label
@@ -143,13 +163,22 @@ export default function DonationDetailPage({ params }: DonationPageProps) {
             className="mt-1 block w-full border border-gray-300 rounded p-2"
           />
         </div>
-
+        {!expired ? (
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
         >
           Fazer Doação
         </button>
+        ) : (
+          <button
+            type="submit"
+            className="w-full bg-gray-400 text-white py-2 px-4 rounded cursor-not-allowed"
+            disabled
+          >
+            Fazer Doação
+          </button>
+        )}
       </form>
 
       <div className="mt-6">
