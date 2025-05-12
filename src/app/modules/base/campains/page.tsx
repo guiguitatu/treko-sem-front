@@ -3,7 +3,7 @@
 import React from "react";
 import campains from "@/lib/campains.js";
 
-export default function DonationsPage() {
+export default function CampainsPage() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center bg-gray-100">
       <div className="w-full max-w-7xl p-6">
