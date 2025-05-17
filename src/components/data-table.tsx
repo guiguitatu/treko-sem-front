@@ -438,7 +438,6 @@ export function DataTable<
         </div>
       </TabsContent>
 
-      {/* Placeholder for other tabs */}
       <TabsContent
         value="past-performance"
         className="flex flex-col px-4 lg:px-6"

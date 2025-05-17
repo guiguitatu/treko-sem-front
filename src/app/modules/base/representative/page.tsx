@@ -14,7 +14,7 @@ export default function RepresentativesPage() {
           <DataTable
             data={data}
             showNewButton
-            onNew={() => router.push("/users/new")}
+            onNew={() => router.push("/representatives/new")}
           />
         </div>
       </div>
