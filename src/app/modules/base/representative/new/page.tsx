@@ -11,20 +11,25 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 
+// ADAPTAR ESTE SCHEMA PARA CORRESPONDER AO SEU REPRESENTATIVE DO PRISMA
 const representativeSchema = z.object({
-  name: z.string().min(1, "Nome é obrigatório"),
-  cpf: z.string().min(11, "CPF é obrigatório"),
-  birthDate: z.string().min(1, "Data de nascimento é obrigatória"),
-  address: z.string().min(1, "Endereço é obrigatório"),
-  organization: z.string().min(1, "Organização é obrigatória"),
-  department: z.string().min(1, "Departamento é obrigatório"),
-  position: z.string().min(1, "Cargo é obrigatório"),
+  tipo: z.string().min(1, "Tipo é obrigatório"),
+  sigla: z.string().min(1, "Sigla é obrigatória"),
+  cnpj: z.string().length(14, "CNPJ deve ter 14 caracteres"),
+  nome_fantasia: z.string().min(1, "Nome fantasia é obrigatório"),
+  razao_social: z.string().min(1, "Razão social é obrigatória"),
+  representant_id: z.string().min(1, "ID do representante é obrigatório"),
+  universidade: z.string().min(1, "Universidade é obrigatória"),
+  campus: z.string().min(1, "Campus é obrigatório"),
+  numero_membros: z.coerce.number().min(0, "Número de membros deve ser maior ou igual a 0"), // Converte para número
+  data_fundacao: z.string().min(1, "Data de fundação é obrigatória"),
+  telefone: z.string().min(8, "Telefone é obrigatório"),
   email: z.string().email("Email inválido"),
-  phone: z.string().min(8, "Telefone é obrigatório"),
-  region: z.string().min(1, "Região é obrigatória"),
-  status: z.enum(["Ativo", "Inativo"], "Status é obrigatório"),
-  lastContact: z.string().min(1, "Último contato é obrigatório"),
-  memberSince: z.string().min(1, "Data de associação é obrigatória"),
+  site: z.string().url("Site inválido").optional().or(z.literal('')),
+  status: z.string().min(1, "Status é obrigatório"),
+  cep: z.string().min(8, "CEP é obrigatório"),
+  facebook: z.string().url("URL do Facebook inválida").optional().or(z.literal('')),
+  instagram: z.string().url("URL do Instagram inválida").optional().or(z.literal('')),
 });
 
 type RepresentativeFormValues = z.infer<typeof representativeSchema>;
@@ -34,25 +39,48 @@ export default function NewRepresentativePage() {
   const form = useForm<RepresentativeFormValues>({
     resolver: zodResolver(representativeSchema),
     defaultValues: {
-      name: "",
-      cpf: "",
-      birthDate: "",
-      address: "",
-      organization: "",
-      department: "",
-      position: "",
+      tipo: "",
+      sigla: "",
+      cnpj: "",
+      nome_fantasia: "",
+      razao_social: "",
+      representant_id: "",
+      universidade: "",
+      campus: "",
+      numero_membros: 0,
+      data_fundacao: "",
+      telefone: "",
       email: "",
-      phone: "",
-      region: "",
-      status: "Ativo",
-      lastContact: "",
-      memberSince: "",
+      site: "",
+      status: "Ativo", // Pode ser um select ou algo similar
+      cep: "",
+      facebook: "",
+      instagram: "",
     },
   });
 
-  function onSubmit(data: RepresentativeFormValues) {
-    console.log("Novo representante:", data);
-    router.push("/representatives");
+  async function onSubmit(data: RepresentativeFormValues) {
+    console.log("Dados do representante a serem enviados:", data);
+    try {
+      const response = await fetch("http://localhost:8000/representatives", { // Substitua pela URL do seu backend NestJS
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erro ao salvar representante");
+      }
+
+      const result = await response.json();
+      console.log("Representante salvo com sucesso:", result);
+      router.push("/representatives");
+    } catch (error) {
+      console.error("Erro ao enviar dados:", error);
+    }
   }
 
   return (
@@ -63,14 +91,29 @@ export default function NewRepresentativePage() {
         </CardHeader>
         <Form {...form} onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {/* Campos do formulário ADAPTADOS para o seu schema.prisma */}
             <FormField
               control={form.control}
-              name="name"
+              name="nome_fantasia" // Exemplo de campo adaptado
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nome</FormLabel>
+                  <FormLabel>Nome Fantasia</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite o nome" {...field} />
+                    <Input placeholder="Nome da Organização" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* Continue adaptando todos os campos aqui */}
+            <FormField
+              control={form.control}
+              name="cnpj"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>CNPJ</FormLabel>
+                  <FormControl>
+                    <Input placeholder="00.000.000/0000-00" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -78,77 +121,12 @@ export default function NewRepresentativePage() {
             />
             <FormField
               control={form.control}
-              name="cpf"
+              name="data_fundacao"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CPF</FormLabel>
-                  <FormControl>
-                    <Input placeholder="000.000.000-00" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="birthDate"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Data de Nascimento</FormLabel>
+                  <FormLabel>Data de Fundação</FormLabel>
                   <FormControl>
                     <Input type="date" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem className="col-span-full">
-                  <FormLabel>Endereço</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Rua, número, cidade, estado" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="organization"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Organização</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Nome da organização" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="department"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Departamento</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Departamento" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="position"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Cargo</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Cargo" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -169,7 +147,7 @@ export default function NewRepresentativePage() {
             />
             <FormField
               control={form.control}
-              name="phone"
+              name="telefone"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Telefone</FormLabel>
@@ -182,12 +160,12 @@ export default function NewRepresentativePage() {
             />
             <FormField
               control={form.control}
-              name="region"
+              name="universidade"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Região</FormLabel>
+                  <FormLabel>Universidade</FormLabel>
                   <FormControl>
-                    <Input placeholder="Cidade, Estado" {...field} />
+                    <Input placeholder="Nome da universidade" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -195,12 +173,25 @@ export default function NewRepresentativePage() {
             />
             <FormField
               control={form.control}
-              name="lastContact"
+              name="campus"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Último Contato</FormLabel>
+                  <FormLabel>Campus</FormLabel>
                   <FormControl>
-                    <Input type="date" {...field} />
+                    <Input placeholder="Nome do campus" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="numero_membros"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Número de Membros</FormLabel>
+                  <FormControl>
+                    <Input type="number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -208,12 +199,120 @@ export default function NewRepresentativePage() {
             />
             <FormField
               control={form.control}
-              name="memberSince"
+              name="cep"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Associado Desde</FormLabel>
+                  <FormLabel>CEP</FormLabel>
                   <FormControl>
-                    <Input type="date" {...field} />
+                    <Input placeholder="00000-000" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="status"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Status</FormLabel>
+                  <FormControl>
+                    {/* Exemplo de select para status */}
+                    <select {...field} className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                      <option value="Ativo">Ativo</option>
+                      <option value="Inativo">Inativo</option>
+                    </select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="tipo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tipo</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Tipo do representante" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="sigla"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Sigla</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Sigla do representante" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="razao_social"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Razão Social</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Razão Social" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="representant_id"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>ID Representante</FormLabel>
+                  <FormControl>
+                    <Input placeholder="ID do representante" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="site"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Site</FormLabel>
+                  <FormControl>
+                    <Input placeholder="https://www.site.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="facebook"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Facebook</FormLabel>
+                  <FormControl>
+                    <Input placeholder="https://facebook.com/seuperfil" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="instagram"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Instagram</FormLabel>
+                  <FormControl>
+                    <Input placeholder="https://instagram.com/seuperfil" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
