@@ -28,6 +28,14 @@ const nextConfig = {
         source: "/orgs",
         destination: "/modules/base/orgs",
       },
+      {
+        source: "/campaigns/:path*",
+        destination: "/modules/base/campaigns/:path*",
+      },
+      {
+        source: "/campaigns",
+        destination: "/modules/base/campaigns",
+      },
     ];
   },
 };

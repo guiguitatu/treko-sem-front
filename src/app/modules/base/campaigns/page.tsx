@@ -3,7 +3,7 @@
 import React from "react";
 import campains from "@/lib/campains.js";
 
-export default function CampainsPage() {
+export default function CampaignsPages() {
   return (
     <div className="w-full h-[90vh] flex flex-col justify-center">
       <div className="w-full p-6">
