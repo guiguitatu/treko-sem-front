@@ -1,6 +1,8 @@
+"use client";
+
 import { ChartMetricInteractive } from "@/components/chart-metric-interactive";
 import { SectionCards } from "@/components/section-cards";
-
+import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
   const retentionData = [
@@ -15,91 +17,41 @@ export default function DashboardPage() {
     { date: "2025-04-15", churnRate: 0.05 },
   ];
 
-  const totalDonationsData = [
-    { date: "2024-12-01", totalDonations: 400000, type: 'academic_center' },
-    { date: "2024-12-02", totalDonations: 300000, type: 'academic_center' },
-    { date: "2024-12-03", totalDonations: 500000, type: 'athletic' },
-    { date: "2024-12-04", totalDonations: 200000, type: 'athletic' },
-    { date: "2024-12-05", totalDonations: 600000, type: 'central_directory' },
-    { date: "2024-12-06", totalDonations: 700000, type: 'central_directory' },
-    { date: "2024-11-01", totalDonations: 800000, type: 'academic_center' },
-    { date: "2024-11-02", totalDonations: 100000, type: 'academic_center' },
-    { date: "2024-11-03", totalDonations: 300000, type: 'athletic' },
-    { date: "2024-11-04", totalDonations: 500000, type: 'athletic' },
-    { date: "2024-11-05", totalDonations: 700000, type: 'central_directory' },
-    { date: "2024-11-06", totalDonations: 900000, type: 'central_directory' },
-    { date: "2024-10-01", totalDonations: 200000, type: 'academic_center' },
-    { date: "2024-10-02", totalDonations: 400000, type: 'academic_center' },
-    { date: "2024-10-03", totalDonations: 600000, type: 'athletic' },
-    { date: "2024-10-04", totalDonations: 800000, type: 'athletic' },
-    { date: "2024-10-05", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2024-10-06", totalDonations: 300000, type: 'central_directory' },
-    { date: "2024-09-01", totalDonations: 500000, type: 'academic_center' },
-    { date: "2024-09-02", totalDonations: 750000, type: 'academic_center' },
-    { date: "2024-09-03", totalDonations: 250000, type: 'athletic' },
-    { date: "2024-09-04", totalDonations: 300000, type: 'athletic' },
-    { date: "2024-09-05", totalDonations: 450000, type: 'central_directory' },
-    { date: "2024-09-06", totalDonations: 600000, type: 'central_directory' },
-    { date: "2025-01-01", totalDonations: 500000, type: 'academic_center' },
-    { date: "2025-01-02", totalDonations: 300000, type: 'academic_center' },
-    { date: "2025-01-03", totalDonations: 700000, type: 'athletic' },
-    { date: "2025-01-04", totalDonations: 200000, type: 'athletic' },
-    { date: "2025-01-05", totalDonations: 400000, type: 'central_directory' },
-    { date: "2025-01-06", totalDonations: 600000, type: 'central_directory' },
-    { date: "2025-02-01", totalDonations: 800000, type: 'academic_center' },
-    { date: "2025-02-02", totalDonations: 100000, type: 'academic_center' },
-    { date: "2025-02-03", totalDonations: 300000, type: 'athletic' },
-    { date: "2025-02-04", totalDonations: 500000, type: 'athletic' },
-    { date: "2025-02-05", totalDonations: 700000, type: 'central_directory' },
-    { date: "2025-02-06", totalDonations: 900000, type: 'central_directory' },
-    { date: "2025-03-01", totalDonations: 200000, type: 'academic_center' },
-    { date: "2025-03-02", totalDonations: 400000, type: 'academic_center' },
-    { date: "2025-03-03", totalDonations: 600000, type: 'athletic' },
-    { date: "2025-03-04", totalDonations: 800000, type: 'athletic' },
-    { date: "2025-03-05", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-03-06", totalDonations: 300000, type: 'central_directory' },
-    { date: "2025-04-01", totalDonations: 1000000, type: 'academic_center' },
-    { date: "2025-04-02", totalDonations: 1000, type: 'academic_center' },
-    { date: "2025-04-03", totalDonations: 1000000, type: 'academic_center' },
-    { date: "2025-04-04", totalDonations: 10000, type: 'academic_center' },
-    { date: "2025-04-05", totalDonations: 1000000, type: 'athletic' },
-    { date: "2025-04-06", totalDonations: 10000, type: 'athletic' },
-    { date: "2025-04-07", totalDonations: 1000000, type: 'athletic' },
-    { date: "2025-04-08", totalDonations: 10000, type: 'central_directory' },
-    { date: "2025-04-09", totalDonations: 100000, type: 'central_directory' },
-    { date: "2025-04-10", totalDonations: 500000, type: 'central_directory' },
-    { date: "2025-04-11", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-04-12", totalDonations: 10000, type: 'central_directory' },
-    { date: "2025-04-13", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-04-14", totalDonations: 10000, type: 'central_directory' },
-    { date: "2025-04-15", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-04-16", totalDonations: 10000, type: 'central_directory' },
-    { date: "2025-04-17", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-04-18", totalDonations: 10000, type: 'central_directory' },
-    { date: "2025-04-19", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-04-20", totalDonations: 10000, type: 'central_directory' },
-    { date: "2025-04-21", totalDonations: 1000000, type: 'central_directory' },
-    { date: "2025-04-22", totalDonations: 500000, type: 'academic_center' },
-    { date: "2025-04-23", totalDonations: 750000, type: 'academic_center' },
-    { date: "2025-04-24", totalDonations: 250000, type: 'athletic' },
-    { date: "2025-04-25", totalDonations: 300000, type: 'athletic' },
-    { date: "2025-04-26", totalDonations: 450000, type: 'central_directory' },
-    { date: "2025-04-27", totalDonations: 600000, type: 'central_directory' },
-    { date: "2025-04-28", totalDonations: 800000, type: 'academic_center' },
-    { date: "2025-04-29", totalDonations: 200000, type: 'academic_center' },
-    { date: "2025-04-30", totalDonations: 100000, type: 'athletic' },
-    { date: "2025-05-01", totalDonations: 400000, type: 'athletic' },
-    { date: "2025-05-02", totalDonations: 900000, type: 'central_directory' },
-    { date: "2025-05-03", totalDonations: 700000, type: 'central_directory' },
-    { date: "2025-05-04", totalDonations: 300000, type: 'academic_center' },
-    { date: "2025-05-05", totalDonations: 500000, type: 'academic_center' },
-    { date: "2025-05-06", totalDonations: 600000, type: 'athletic' },
-    { date: "2025-05-07", totalDonations: 1000000, type: 'athletic' },
-    { date: "2025-05-08", totalDonations: 200000, type: 'central_directory' },
-    { date: "2025-05-09", totalDonations: 300000, type: 'central_directory' },
-    { date: "2025-05-10", totalDonations: 400000, type: 'academic_center' },
-    { date: "2025-05-11", totalDonations: 500000, type: 'academic_center' },
-  ];
+  const [totalDonationsData, setTotalDonationsData] = useState([]);
+
+  const [loadingDonations, setLoadingDonations] = useState(true);
+  const [errorDonations, setErrorDonations] = useState(null);
+
+  useEffect(() => {
+    async function fetchTotalDonationsData() {
+      try {
+        setLoadingDonations(true);
+        const response = await fetch(
+          "http://localhost:8000/dashboard/total-donations-by-date"
+        );
+        if (!response.ok)
+          throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        setTotalDonationsData(data);
+      } catch (error) {
+        console.error("Error fetching total donations data:", error);
+        setErrorDonations(error);
+      } finally {
+        setLoadingDonations(false);
+      }
+    }
+    fetchTotalDonationsData();
+  }, []);
+
+  if (loadingDonations) {
+    return <p>Carregando dados do dashboard...</p>;
+  }
+
+  if (errorDonations) {
+    return (
+      <p>Erro ao carregar dados do dashboard. Por favor, tente novamente.</p>
+    );
+  }
 
   return (
     <div className="flex flex-1 flex-col">
@@ -107,7 +59,6 @@ export default function DashboardPage() {
         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
           <SectionCards />
           <div className="px-4 lg:px-6">
-
             <ChartMetricInteractive
               title="Total de Doações"
               data={totalDonationsData}
@@ -131,7 +82,8 @@ export default function DashboardPage() {
               metricKey="churnRate"
               label="Taxa de churn: "
               aggregation="avg"
-              color="var(--red)" />
+              color="var(--red)"
+            />
           </div>
         </div>
       </div>

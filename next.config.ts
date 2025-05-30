@@ -36,6 +36,22 @@ const nextConfig = {
         source: "/campaigns",
         destination: "/modules/base/campaigns",
       },
+      {
+        source: "/donations/:path*",
+        destination: "/modules/base/donations/:path*",
+      },
+      {
+        source: "/donations",
+        destination: "/modules/base/donations",
+      },
+      {
+        source: "/settings/:path*",
+        destination: "/modules/base/settings/:path*",
+      },
+      {
+        source: "/settings",
+        destination: "/modules/base/settings",
+      },
     ];
   },
 };
