@@ -6,7 +6,7 @@ import Button from '../../../../components/Button';
 export default function LoginPage() {
   const handleLogin = () => {
     
-  };
+};
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">

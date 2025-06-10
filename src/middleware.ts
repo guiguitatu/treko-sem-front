@@ -10,8 +10,9 @@ export function middleware(req: NextRequest) {
 		pathname.startsWith('/api/auth/login') ||
 		//checar caminho pra debugar caso n de certo
 		pathname.startsWith('/api/auth/signup') ||
-		pathname === '/login' ||
-		pathname === '/signup' ||
+		pathname === '/modules/auth/login' ||
+		pathname === '/modules/auth/signup' ||
+		pathname === '/' ||
 		/\.(.*)$/.test(pathname)
 	) {
 		return NextResponse.next()
