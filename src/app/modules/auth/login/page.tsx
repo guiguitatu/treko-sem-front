@@ -5,7 +5,7 @@ import Button from '../../../../components/Button';
 
 export default function LoginPage() {
   const handleLogin = () => {
-    console.log('Login clicado!');
+    
   };
 
   return (
