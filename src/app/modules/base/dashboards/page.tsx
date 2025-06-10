@@ -19,13 +19,9 @@ export default function DashboardPage() {
 
   const [totalDonationsData, setTotalDonationsData] = useState([]);
 
-  const [loadingDonations, setLoadingDonations] = useState(true);
-  const [errorDonations, setErrorDonations] = useState(null);
-
   useEffect(() => {
     async function fetchTotalDonationsData() {
       try {
-        setLoadingDonations(true);
         const response = await fetch(
           "http://localhost:8000/dashboard/total-donations-by-date"
         );
@@ -35,23 +31,10 @@ export default function DashboardPage() {
         setTotalDonationsData(data);
       } catch (error) {
         console.error("Error fetching total donations data:", error);
-        setErrorDonations(error);
-      } finally {
-        setLoadingDonations(false);
       }
     }
     fetchTotalDonationsData();
   }, []);
-
-  if (loadingDonations) {
-    return <p>Carregando dados do dashboard...</p>;
-  }
-
-  if (errorDonations) {
-    return (
-      <p>Erro ao carregar dados do dashboard. Por favor, tente novamente.</p>
-    );
-  }
 
   return (
     <div className="flex flex-1 flex-col">
