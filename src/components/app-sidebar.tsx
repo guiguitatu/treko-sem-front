@@ -37,6 +37,11 @@ const data = {
     },
 
     {
+      title: "Campanhas",
+      url: "/campaigns",
+      icon: IconDashboard,
+    },
+    {
       title: "Representantes",
       url: "/representatives",
       icon: User,
