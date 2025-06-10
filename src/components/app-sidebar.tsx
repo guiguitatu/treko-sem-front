@@ -1,10 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  IconDashboard,
-  IconSettings,
-} from "@tabler/icons-react";
+import { IconDashboard, IconSettings } from "@tabler/icons-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
@@ -21,7 +18,9 @@ import {
 import { Building, DollarSign, User } from "lucide-react";
 import Image from "next/image";
 
-import TrekoLogo from '@/app/assets/treko_logo.svg'
+import TrekoLogo from "@/app/assets/treko_logo.svg";
+import { NavCollapsable } from "./nav-collapsable";
+import { ModeToggle } from "./theme-switcher";
 
 const data = {
   user: {
@@ -33,22 +32,18 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/modules/base/dashboards",
+      url: "/dashboards",
       icon: IconDashboard,
     },
-    {
-      title: "Entidades",
-      url: "/modules/base/entity/academic_center",
-      icon: Building,
-    },
+
     {
       title: "Representantes",
-      url: "#",
+      url: "/representatives",
       icon: User,
     },
     {
       title: "Doações",
-      url: "#",
+      url: "/donations",
       icon: DollarSign,
     },
   ],
@@ -58,6 +53,28 @@ const data = {
       title: "Configurações",
       url: "#",
       icon: IconSettings,
+    },
+  ],
+
+  navCollapsable: [
+    {
+      title: "Entidades",
+      url: "/orgs",
+      icon: Building,
+      items: [
+        {
+          title: "Todos",
+          url: "/orgs/all",
+        },
+        {
+          title: "Centro Acadêmico",
+          url: "/orgs/academic_center",
+        },
+        {
+          title: "Diretório Central",
+          url: "/orgs/central_directory",
+        },
+      ],
     },
   ],
 };
@@ -70,10 +87,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
+              className="data-[slot=sidebar-menu-button]:!p-1.5 hover:bg-transparent focus:bg-transparent"
             >
-              <a href="#">
-                <Image src={TrekoLogo} width={120} height={50} alt={"Treko"}></Image>
+              <a href="/modules/base/dashboards">
+                <Image
+                  src={TrekoLogo}
+                  width={120}
+                  height={50}
+                  alt="Treko"
+                  className="dark:invert"
+                ></Image>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -81,9 +104,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavCollapsable items={data.navCollapsable} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="flex flex-row items-center justify-center  gap-1">
+        <ModeToggle />
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
