@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "lint": "next lint",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "build:ci": "npm ci && npm run lint && npm run build"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { DonationsDataTable } from "@/components/donations-data-table";
+import { FetchServerResponseOptions } from "next/dist/client/components/router-reducer/fetch-server-response";
 
 interface Donation {
   id: number;
