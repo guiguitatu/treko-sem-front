@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import * as React from "react";
@@ -33,7 +34,6 @@ import {
 } from "@tanstack/react-table";
 import {
   IconGripVertical,
-  IconDotsVertical,
   IconLayoutColumns,
   IconChevronDown,
   IconChevronLeft,
@@ -67,10 +67,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
-import {
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from "@radix-ui/react-dropdown-menu";
 
 interface DataTableProps<T> {
   data: T[];

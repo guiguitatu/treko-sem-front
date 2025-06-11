@@ -1,51 +1,45 @@
 // src/app/modules/base/donation/page.tsx
+"use client";
 
-import React from "react";
-import campains from "@/lib/campains.js";
+import CampaignCard from "@/components/campaign-card";
+import React, { useEffect, useState } from "react";
+
+type Campaign = {
+  id: number;
+  name: string;
+  goal: number;
+  startDate: string;
+  endDate: string;
+  academicEntityId: number;
+  totalDonations: number;
+};
 
 export default function CampaignsPages() {
+  const [campaigns, setCampaigns] = useState<Campaign[]>([]);
+
+  useEffect(() => {
+    async function fetchCampaigns() {
+      try {
+        const response = await fetch("http://localhost:8000/campaigns");
+        if (!response.ok) throw new Error("Failed to fetch campaigns");
+        const result = await response.json();
+        setCampaigns(result.data);
+      } catch (error) {
+        console.error("Error fetching campaigns:", error);
+      }
+    }
+    fetchCampaigns();
+  }, []);
+
   return (
-    <div className="w-full h-[90vh] flex flex-col justify-center">
-      <div className="w-full p-6">
-        <h1 className="text-2xl font-bold my-4">Doações</h1>
-
-        <div className="grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {campains.map((c) => {
-            const progress = Math.round((c.current_value / c.goal) * 100);
-
-            return (
-              <a
-                key={c.id}
-                href={`campains/${c.id}`}
-                className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
-              >
-                <div className="p-4 h-full flex flex-col justify-between">
-                  <h2 className="text-lg font-semibold">{c.campain_name}</h2>
-                  <p className="text-gray-600 mb-2">{c.description}</p>
-
-                  {/* Barra de progresso */}
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="h-2 rounded-full bg-green-500"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                  <p className="text-sm text-gray-700 mt-1">{progress}% arrecadado</p>
-
-                  {/* Label de expiração */}
-                  {new Date(c.end_date) < new Date() ? (
-                    <span className="text-red-500 font-bold mt-2 block">
-                      Expirada em {c.end_date}
-                    </span>
-                  ) : (
-                    <span className="text-green-600 font-medium mt-2 block">
-                      Termina em {c.end_date}
-                    </span>
-                  )}
-                </div>
-              </a>
-            );
-          })}
+    <div className="flex flex-1 flex-col">
+      <div className="@container/main flex flex-1 flex-col gap-2">
+        <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+          <div className="grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+            {campaigns.map((campaign: Campaign) => (
+              <CampaignCard key={campaign.id} campaign={campaign} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
