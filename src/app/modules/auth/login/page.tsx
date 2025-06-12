@@ -2,11 +2,27 @@
 
 import Image from 'next/image';
 import Button from '../../../../components/Button';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 
 export default function LoginPage() {
-  const handleLogin = () => {
+  const [userEmail, setEmail] = useState<string>()
+  const [userPassword, setPassword] = useState<string>()
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
+  async function login() {
+    setIsLoading(true)
     
-};
+    try {
+        router.push("/modules/base/dashboards")
+        localStorage.set("treko_jwt", "test")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
@@ -45,6 +61,8 @@ export default function LoginPage() {
                   id="email"
                   placeholder="fulano@gmail.com"
                   className="mt-1 w-full p-3 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 "
+                  value={userEmail}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -60,14 +78,17 @@ export default function LoginPage() {
                   id="password"
                   placeholder="Digite sua senha"
                   className="mt-1 w-full p-3 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 "
+                  value={userPassword}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
               <div className="mt-[50px] flex justify-center">
                 <Button
-                  text="Entrar"
+                  text={isLoading ? "Entrando..." : "Entrar"}
                   variant="primary"
-                  onClick={handleLogin}
+                  onClick={login}
+                  disabled={isLoading}
                 />
               </div>
 
