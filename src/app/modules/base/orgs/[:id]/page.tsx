@@ -2,6 +2,7 @@
 
 import { useOrg } from "@/app/providers/OrgProvider"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
+import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useEffect } from "react"
 import { TOrg } from "../page"
@@ -49,8 +50,15 @@ export default function Org() {
 	if (currentOrg) {
 		return (
 			<div className="w-full min-h-full flex flex-col items-center justify-center p-2 rounded-4xl">
-				<div className="relative w-full h-48 overflow-hidden flex items-center justify-start border-red-500 border-2 rounded-t-2xl">
-					<img src={currentOrg.image_url ?? '/academic-donations.png'} alt="Banner" className="w-full h-full object-cover" />
+                                <div className="relative w-full h-48 overflow-hidden flex items-center justify-start border-red-500 border-2 rounded-t-2xl">
+                                        <Image
+                                                src={currentOrg.image_url ?? '/academic-donations.png'}
+                                                alt="Banner"
+                                                fill
+                                                unoptimized
+                                                sizes="(max-width: 1024px) 100vw, 100vw"
+                                                className="object-cover"
+                                        />
 					<div className="bg-black/60 absolute inset-0 z-10" />
 					<p className="absolute z-20 p-6 text-white text-2xl font-medium">
 						{currentOrg.name}

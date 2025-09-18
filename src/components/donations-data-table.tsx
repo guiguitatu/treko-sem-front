@@ -2,9 +2,27 @@
 
 import * as React from "react";
 import { z } from "zod";
-import { useReactTable, ColumnDef, getCoreRowModel, getPaginationRowModel } from "@tanstack/react-table";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  useReactTable,
+  ColumnDef,
+  getCoreRowModel,
+  getPaginationRowModel,
+} from "@tanstack/react-table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
 const donationSchema = z.object({
@@ -16,6 +34,8 @@ const donationSchema = z.object({
   date: z.string(),
 });
 
+const donationListSchema = z.array(donationSchema);
+
 type DonationsDataTableProps = {
   data: z.infer<typeof donationSchema>[];
 };
@@ -23,12 +43,31 @@ type DonationsDataTableProps = {
 export function DonationsDataTable({ data }: DonationsDataTableProps) {
   const [typeFilter, setTypeFilter] = React.useState("all");
   const [dateRange, setDateRange] = React.useState("all");
-  const [pageSize, setPageSize] = React.useState(10);
+  const pageSize = 10;
+
+  const parsedData = React.useMemo(() => donationListSchema.parse(data), [data]);
+
+  const typeOptions = React.useMemo(() => {
+    const types = new Set(parsedData.map((donation) => donation.type));
+    return Array.from(types).sort((a, b) => a.localeCompare(b));
+  }, [parsedData]);
+
+  const formattedDate = React.useCallback((value: string) => {
+    return new Intl.DateTimeFormat("pt-BR").format(new Date(value));
+  }, []);
+
+  const formattedCurrency = React.useMemo(() => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      maximumFractionDigits: 2,
+    });
+  }, []);
 
   const filteredData = React.useMemo(() => {
     const now = new Date();
 
-    return data.filter((donation) => {
+    return parsedData.filter((donation) => {
       const matchesType = typeFilter === "all" || donation.type === typeFilter;
 
       const donationDate = new Date(donation.date);
@@ -44,7 +83,7 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
 
       return matchesType && matchesDate;
     });
-  }, [typeFilter, dateRange, data]);
+  }, [typeFilter, dateRange, parsedData]);
 
   const columns: ColumnDef<z.infer<typeof donationSchema>>[] = [
     {
@@ -58,14 +97,23 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
     {
       accessorKey: "donated",
       header: "Quantidade doada",
+      cell: ({ row }) => {
+        const donation = row.original;
+        if (donation.type === "money") {
+          return formattedCurrency.format(donation.donated);
+        }
+        return donation.donated;
+      },
     },
     {
       accessorKey: "type",
       header: "Tipo da doação",
+      cell: ({ getValue }) => String(getValue()),
     },
     {
       accessorKey: "date",
       header: "Data",
+      cell: ({ getValue }) => formattedDate(String(getValue())),
     },
   ];
 
@@ -90,10 +138,12 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
             <SelectValue placeholder="Filter by type" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Types</SelectItem>
-            <SelectItem value="money">Money</SelectItem>
-            <SelectItem value="Coat">Coat</SelectItem>
-            <SelectItem value="food">Food</SelectItem>
+            <SelectItem value="all">Todos os tipos</SelectItem>
+            {typeOptions.map((option) => (
+              <SelectItem key={option} value={option}>
+                {option}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
 
@@ -102,10 +152,10 @@ export function DonationsDataTable({ data }: DonationsDataTableProps) {
             <SelectValue placeholder="Filter by date range" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Dates</SelectItem>
-            <SelectItem value="30days">Last 30 Days</SelectItem>
-            <SelectItem value="7days">Last 7 Days</SelectItem>
-            <SelectItem value="3days">Last 3 Days</SelectItem>
+            <SelectItem value="all">Todos os períodos</SelectItem>
+            <SelectItem value="30days">Últimos 30 dias</SelectItem>
+            <SelectItem value="7days">Últimos 7 dias</SelectItem>
+            <SelectItem value="3days">Últimos 3 dias</SelectItem>
           </SelectContent>
         </Select>
       </div>

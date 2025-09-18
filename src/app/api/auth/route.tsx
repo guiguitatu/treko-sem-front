@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 import jwt from 'jsonwebtoken'
 
 export async function POST(req: NextRequest) {
-  const { username, password } = await req.json()
+  const { username } = await req.json()
   const token = jwt.sign({ username }, "TREKOOOO", {
     expiresIn: '6h',
   })

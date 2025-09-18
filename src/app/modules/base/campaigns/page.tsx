@@ -2,41 +2,47 @@
 "use client";
 
 import CampaignCard from "@/components/campaign-card";
-import React, { useEffect, useState } from "react";
+import campains from "@/lib/campains.js";
+import React, { useMemo } from "react";
 
 type Campaign = {
   id: number;
-  name: string;
+  campain_name: string;
+  description: string;
+  start_date: string;
+  end_date: string;
+  estatus: string;
   goal: number;
-  startDate: string;
-  endDate: string;
-  academicEntityId: number;
-  totalDonations: number;
+  current_value: number;
+  accepted: string;
+  isExpired: boolean;
 };
 
 export default function CampaignsPages() {
-  const [campaigns, setCampaigns] = useState<Campaign[]>([]);
+  const campaigns = useMemo<Campaign[]>(
+    () => [...(campains as Campaign[])],
+    []
+  );
 
-  useEffect(() => {
-    async function fetchCampaigns() {
-      try {
-        const response = await fetch("http://localhost:8000/campaigns");
-        if (!response.ok) throw new Error("Failed to fetch campaigns");
-        const result = await response.json();
-        setCampaigns(result.data);
-      } catch (error) {
-        console.error("Error fetching campaigns:", error);
-      }
-    }
-    fetchCampaigns();
-  }, []);
+  const sortedCampaigns = useMemo(
+    () =>
+      [...campaigns].sort((a, b) => {
+        if (a.isExpired !== b.isExpired) {
+          return a.isExpired ? 1 : -1;
+        }
+        return (
+          new Date(a.end_date).getTime() - new Date(b.end_date).getTime()
+        );
+      }),
+    [campaigns]
+  );
 
   return (
     <div className="flex flex-1 flex-col">
       <div className="@container/main flex flex-1 flex-col gap-2">
         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
           <div className="grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-            {campaigns.map((campaign: Campaign) => (
+            {sortedCampaigns.map((campaign: Campaign) => (
               <CampaignCard key={campaign.id} campaign={campaign} />
             ))}
           </div>
