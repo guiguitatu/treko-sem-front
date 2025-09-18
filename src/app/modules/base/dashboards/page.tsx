@@ -2,39 +2,108 @@
 
 import { ChartMetricInteractive } from "@/components/chart-metric-interactive";
 import { SectionCards } from "@/components/section-cards";
-import { useEffect, useState } from "react";
+import donations from "@/lib/donations.js";
+import { useMemo } from "react";
+
+type Donation = {
+  id: number;
+  donation_name: string;
+  name: string;
+  donated: number;
+  type: string;
+  date: string;
+};
 
 export default function DashboardPage() {
-  const retentionData = [
-    { date: "2025-04-29", retentionRate: 0.96 },
-    { date: "2025-04-22", retentionRate: 0.96 },
-    { date: "2025-04-15", retentionRate: 0.95 },
-  ];
+  const donationData = useMemo<Donation[]>(
+    () => donations as Donation[],
+    []
+  );
 
-  const churnData = [
-    { date: "2025-04-29", churnRate: 0.04 },
-    { date: "2025-04-22", churnRate: 0.04 },
-    { date: "2025-04-15", churnRate: 0.05 },
-  ];
+  const monetaryDonations = useMemo(
+    () => donationData.filter((donation) => donation.type === "money"),
+    [donationData]
+  );
 
-  const [totalDonationsData, setTotalDonationsData] = useState([]);
+  const totalDonationsData = useMemo(
+    () => {
+      const totalsByDate = monetaryDonations.reduce(
+        (acc, donation) => {
+          const currentTotal = acc.get(donation.date) ?? 0;
+          acc.set(donation.date, currentTotal + donation.donated);
+          return acc;
+        },
+        new Map<string, number>()
+      );
 
-  useEffect(() => {
-    async function fetchTotalDonationsData() {
-      try {
-        const response = await fetch(
-          "http://localhost:8000/dashboard/total-donations-by-date"
+      return Array.from(totalsByDate.entries())
+        .map(([date, totalDonations]) => ({
+          date,
+          totalDonations,
+        }))
+        .sort(
+          (a, b) =>
+            new Date(a.date).getTime() - new Date(b.date).getTime()
         );
-        if (!response.ok)
-          throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
-        setTotalDonationsData(data);
-      } catch (error) {
-        console.error("Error fetching total donations data:", error);
-      }
+    },
+    [monetaryDonations]
+  );
+
+  const monthlyDonorSets = useMemo(
+    () => {
+      const donorsByMonth = new Map<string, Set<string>>();
+
+      donationData.forEach((donation) => {
+        const monthKey = donation.date.slice(0, 7);
+        if (!donorsByMonth.has(monthKey)) {
+          donorsByMonth.set(monthKey, new Set());
+        }
+        donorsByMonth.get(monthKey)!.add(donation.name);
+      });
+
+      return Array.from(donorsByMonth.entries()).sort(
+        (a, b) =>
+          new Date(`${a[0]}-01`).getTime() - new Date(`${b[0]}-01`).getTime()
+      );
+    },
+    [donationData]
+  );
+
+  const { retentionData, churnData } = useMemo(() => {
+    if (!monthlyDonorSets.length) {
+      return { retentionData: [], churnData: [] };
     }
-    fetchTotalDonationsData();
-  }, []);
+
+    const retention = monthlyDonorSets.map(([month, donors], index) => {
+      if (index === 0) {
+        return {
+          date: `${month}-01`,
+          retentionRate: 1,
+        };
+      }
+
+      const [, previousDonors] = monthlyDonorSets[index - 1];
+      const retainedCount = Array.from(donors).filter((donor) =>
+        previousDonors.has(donor)
+      ).length;
+      const rate =
+        previousDonors.size === 0
+          ? 0
+          : Number((retainedCount / previousDonors.size).toFixed(2));
+
+      return {
+        date: `${month}-01`,
+        retentionRate: rate,
+      };
+    });
+
+    const churn = retention.map((entry) => ({
+      date: entry.date,
+      churnRate: Number((1 - entry.retentionRate).toFixed(2)),
+    }));
+
+    return { retentionData: retention, churnData: churn };
+  }, [monthlyDonorSets]);
 
   return (
     <div className="flex flex-1 flex-col">
